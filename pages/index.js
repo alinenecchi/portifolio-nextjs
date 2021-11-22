@@ -16,7 +16,7 @@ export default function Home(props) {
     ...other
   } = props;
 
-  const [themeState, setThemeState] = useState(true);
+  const [themeState, setThemeState] = useState();
 
   const handleChange = () => {
     setThemeState(!themeState);
@@ -57,7 +57,7 @@ export default function Home(props) {
 
       <div className={css['navbar']}>
           {
-            themeState === true 
+            themeState === true
             ?
             <Navbar style="light"/>
             : 
