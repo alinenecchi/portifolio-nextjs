@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Section from '../../atoms/section';
 import css from "./container.module.scss";
 
@@ -15,8 +15,9 @@ function Container (props) {
     data-style={style}
     {...other}
   >
-     <h1>Front end developer</h1>
-    <p>Meu portifólio</p>
+      <h1>Front end developer</h1>
+      <h2>Portifólio</h2>
+      <h3>em desenvolvimento</h3>
      
     </Section>
 }

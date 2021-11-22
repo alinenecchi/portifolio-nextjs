@@ -1,8 +1,7 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import React, {useState, useEffect } from 'react';
 import Container from '../components/organisms/container';
 import Section from '../components/atoms/section';
+import Button from '../components/atoms/button';
 import Navbar from '../components/molecules/navbar';
 import Footer from '../components/molecules/footer';
 import css from '../styles/home.module.scss';
@@ -39,10 +38,22 @@ export default function Home(props) {
     {...other}
   >
     <div className={css['app']}>
-      <button onClick={handleChange}>{themeState ? 'Light Mode' : 'Dark Mode'}</button>
       <div class="stars" ></div>
       <div class="stars2" ></div>
       <div class="stars3" ></div>
+      <div className={css['button']}>
+        {
+          themeState === true 
+          ?
+          <Button style="light" onClick={handleChange}>
+            {themeState ? 'Light Mode' : 'Dark Mode'}
+          </Button>
+          : 
+          <Button onClick={handleChange}>
+            {themeState ? 'Light Mode' : 'Dark Mode'}
+          </Button>
+        }
+      </div>
 
       <div className={css['navbar']}>
           {

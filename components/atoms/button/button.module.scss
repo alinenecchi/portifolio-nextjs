@@ -35,6 +35,9 @@
     // opacity: .5;
     color: $color-secondary-5;
   }
+  &[data-style="light"] {
+    color: black;
+    }
 
   /******************************************
    *      RESPONSIVITY (media queries)      *
