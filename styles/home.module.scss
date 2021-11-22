@@ -4,9 +4,12 @@
 .page__home-container {
   position: relative;
 
-  /******************************************
-   *      RESPONSIVITY (media queries)      *
-   ******************************************/
+  .app {
+    .button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
   @include gt-phone {
     // TODO: add specifications for devices that are greater than phones
     // example: .content { ... }

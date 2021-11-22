@@ -6,6 +6,7 @@ function Button (props) {
     className = "",
     children,
     variant = "regular",
+    style,
     small = false,
     faint = false,
     ...other
@@ -13,6 +14,7 @@ function Button (props) {
 
   return <button
     className={`${css['atom__button-container']} ${className}`}
+    data-style={style}
     data-variant={variant}
     data-small={small ? 1 : null}
     data-faint={faint ? 1 : null}
