@@ -1,7 +1,7 @@
 # PORTIFOLIO-NEXTJS
 
 <h4 align="left"> 
-	🚧  Projeto 🚀 em andamento...  🚧
+	🚧  Projeto 🚀 em desenvolvimento...  🚧
 </h4>
 <h4> 
 	<a href="https://portifolio-nextjs-alineribeiro.vercel.app/" target="_blank">Meu portifólio</a>
