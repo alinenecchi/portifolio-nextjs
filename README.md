@@ -4,7 +4,7 @@
 	🚧  Projeto 🚀 em andamento...  🚧
 </h4>
 <h4> 
-	<a href="https://dev-aliribeiro.netlify.app/" target="_blank">Meu portifólio</a>
+	<a href="https://portifolio-nextjs-alineribeiro.vercel.app/" target="_blank">Meu portifólio</a>
 </h4>
 
 ## ETAPA 1: 
@@ -21,8 +21,7 @@ Continua no terminal do projeto para linkar o projeto local com o remoto:
 <p><code>git remote add origin https://github.com/aliribei/portifolio-nextjs.git</code></p>
 
 ## ETAPA 2: 
-Objetivo é publicar e fazer deploy em nuvem. Para isso escolhi a plataforma Netlify.
-continua...
+Deploy Vercel.
 
 ## Getting Started
 
