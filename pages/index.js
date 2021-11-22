@@ -16,7 +16,7 @@ export default function Home(props) {
     ...other
   } = props;
 
-  const [themeState, setThemeState] = useState(false);
+  const [themeState, setThemeState] = useState(true);
 
   const handleChange = () => {
     setThemeState(!themeState);
