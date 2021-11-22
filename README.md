@@ -1,4 +1,28 @@
+# PORTIFOLIO-NEXTJS
+
+<h4 align="left"> 
+	🚧  Projeto 🚀 em andamento...  🚧
+</h4>
+<h4> 
+	<a href="https://dev-aliribeiro.netlify.app/" target="_blank">Meu portifólio</a>
+</h4>
+
+## ETAPA 1: 
+
+Criar um app-react localmente no seu terminal. 
 Website is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p><code>git init</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "Enviando para github"</code></p>
+
+Criar um repositório no github, preferencialmente com o mesmo nome.
+
+Continua no terminal do projeto para linkar o projeto local com o remoto: 
+<p><code>git remote add origin https://github.com/aliribei/portifolio-nextjs.git</code></p>
+
+## ETAPA 2: 
+Objetivo é publicar e fazer deploy em nuvem. Para isso escolhi a plataforma Netlify.
+continua...
 
 ## Getting Started
 
