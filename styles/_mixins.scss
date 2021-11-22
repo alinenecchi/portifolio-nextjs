@@ -1,0 +1,46 @@
+$mobileLimit: 600px;
+$tabletLimit: 1080px;
+$desktopLimit: 1920px;
+
+$section-max-width: 1280px;
+$section-min-height: 50vh;
+
+//size text
+$size-text: 1.4rem;
+$size-title: 3.8rem;
+
+
+@mixin zIndex($layer, $level) {
+  $cur: $layer * 1000 + $level;
+  z-index: $cur;
+}
+
+@mixin phone {
+  @media (max-width: $mobileLimit - 1) { @content; }
+}
+@mixin gt-phone {
+  @media (min-width: $mobileLimit) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: $mobileLimit) and (max-width: $tabletLimit - 1) { @content; }
+}
+@mixin gt-tablet {
+  @media (min-width: $tabletLimit) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: $tabletLimit) and (max-width: $desktopLimit - 1) { @content; }
+}
+@mixin gt-desktop {
+  @media (min-width: $desktopLimit) { @content; }
+}
+
+@mixin zIndex($layer, $level) {
+  $cur: $layer * 1000 + $level;
+  z-index: $cur;
+}
+
+@mixin blend {
+  mix-blend-mode: overlay;
+}

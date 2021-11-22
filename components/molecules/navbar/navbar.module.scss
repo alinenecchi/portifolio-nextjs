@@ -1,0 +1,86 @@
+@import '_colors';
+@import '_mixins';
+
+.molecule__navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 888888;
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  .navbar-container {
+    display: flex;
+    padding: 1rem;
+  }
+  
+  .logo-container {
+    display: none;
+    text-align: center;
+
+    .content {
+      align-items: center;
+      text-align: center;
+    }
+    .logo-el svg{
+        width: 100px;
+        height: 100px;
+    }
+    .logo-el path{
+      fill: white;
+    }
+  }
+
+  .menu-items-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+
+    .menu-items-list {
+      list-style: none;
+      gap: 1rem;
+      //gap: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      flex-direction: column;
+      align-content: center;
+     
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // .menu-burger-container {
+  //   // 
+  // }
+  &[data-style="light"] {
+    .logo-container {
+      .logo-el path{
+        fill: black;
+      }
+    }
+  }
+  /******************************************
+   *      RESPONSIVITY (media queries)      *
+   ******************************************/
+  @include gt-phone {
+    display: flex;
+
+    .logo-container {
+      display: block;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .menu-items-container {
+      .menu-items-list {
+        flex-direction: row;
+      }
+    }
+
+    .menu-burger-container {
+      display: none;
+    }
+  }
+}

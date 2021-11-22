@@ -1,0 +1,96 @@
+$white: #fff;
+$black: #000;
+
+$bg-dark-mode: #000;
+$grey-dark-mode: rgba(66, 66, 66, 0.712);
+$white-text: #fff;
+$primary:rgb(0, 132, 255);
+
+// theme/colors
+
+// texts
+$color-text: #222;
+// Background
+$color-background-1: #365794;
+$color-background-2: #FFFFFF;
+$color-background-3: #FBFBFB;
+$color-background-linear: linear-gradient(0, #120c56, #000000);
+// base
+$color-base-1: #222222;
+$color-base-2: #494949;
+$color-base-3: #949390;
+$color-base-4: #ACABA7;
+$color-base-5: #CFCECA;
+$color-base-6: #E4E3DF;
+// primary
+$color-primary-1: #fff;
+$color-primary-2: #4D2A74;
+$color-primary-3: #7E5DA3;
+$color-primary-4: #BB6BD9;
+$color-primary-5: #CCCCFF;
+// secondary
+$color-secondary-1: #365794ff;
+$color-secondary-2: #4a6fb4;
+$color-secondary-3: #36579499;
+$color-secondary-4: #2B3968;
+$color-secondary-5: rgb(99, 147, 235);
+// warning
+$color-warning: #FFD336;
+// danger
+$color-danger: #DE323C;
+$color-danger-translucent: rgba(255, 0, 13, 0.06);
+// success
+$color-success-1: #A2DD00;
+$color-success-2: #CDFD4A;
+
+
+// DARK MODE
+// texts
+$color-dark-text: #FFFFFF;
+// Background
+$color-dark-background-1: #1B212D;
+$color-dark-background-2: #212733;
+$color-dark-background-3: #1B212D;
+// base
+$color-dark-base-1: #F2F2F2;
+$color-dark-base-2: #CFCECA;
+$color-dark-base-3: #7C818B;
+$color-dark-base-4: #636A79;
+$color-dark-base-5: #3D4454;
+$color-dark-base-6: #2A303D;
+// primary
+$color-dark-primary-1: #3B1E5A;
+$color-dark-primary-2: #4D2A74;
+$color-dark-primary-3: #7E5DA3;
+$color-dark-primary-4: #BB6BD9;
+$color-dark-primary-5: #CCCCFF;
+// secondary
+$color-dark-secondary-1: #119EDB;
+$color-dark-secondary-2: #23CDFD;
+$color-dark-secondary-3: #67DEFF;
+$color-dark-secondary-4: #99E9FF;
+$color-dark-secondary-5: #C4F2FF;
+// Warning
+$color-dark-warning: #FFD336;
+// danger
+$color-dark-danger: #DE323C;
+$color-dark-danger-translucent: rgba(255, 0, 13, 0.06);
+// success
+$color-dark-success-1: #A2DD00;
+$color-dark-success-2: #CDFD4A;
+
+
+  // n is number of stars required
+@function multiple-box-shadow ($n) {
+    $value: '#{random(3000)}px #{random(3000)}px #FFF';
+    @for $i from 2 through $n{
+    $value: '#{$value} , #{random(3000)}px #{random(3000)}px #FFF';
+    }
+    @return unquote($value)
+};
+$shadows-small:  multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(100);
+
+
+

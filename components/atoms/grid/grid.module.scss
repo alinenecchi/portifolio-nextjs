@@ -1,0 +1,17 @@
+@import '_colors';
+@import '_mixins';
+
+.atom__grid-container {
+  position: relative;
+  display: grid;
+
+  > * {
+    padding: 0 3.8rem;
+  }
+
+  @include gt-phone {
+    grid-template-columns: 1fr 2fr;
+    margin: 0 10%;
+    padding: 0;
+  }
+}

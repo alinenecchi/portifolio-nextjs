@@ -1,0 +1,72 @@
+@import '_colors';
+@import '_mixins';
+
+.molecule__footer-container {
+  position: relative;
+  color: white;
+  font-family: "Open Sans";
+  width: 100%;
+
+  &[data-style="light"] {
+    color: black;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    font-weight: 800;
+    font-size: 4rem;
+    line-height: 4.2rem;
+    margin: 0;
+  }
+
+  .highlight {
+    font-weight: 600;
+    font-size: 2.2rem;
+  }
+
+  .smallText {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    margin: 0;
+  }
+
+  .location {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-bottom: 4.4rem;
+    align-self: center;
+    padding: 0 1rem;
+  }
+  
+  .contact {
+    position: relative;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 3.8rem;
+
+    .mail {
+      font-weight: 700;
+      font-size: 1.7rem;
+    }
+  }
+
+
+
+  /******************************************
+   *      RESPONSIVITY (media queries)      *
+   ******************************************/
+  @include gt-phone {
+
+    .content {
+      display: grid;
+      grid-template-columns: 40rem auto;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '_colors';
+@import '_mixins';
+
+.page__home-container {
+  position: relative;
+
+  /******************************************
+   *      RESPONSIVITY (media queries)      *
+   ******************************************/
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}

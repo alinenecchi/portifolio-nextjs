@@ -1,0 +1,15 @@
+@import '_colors';
+@import '_mixins';
+
+.atom__title-container {
+  position: relative;
+
+  &[data-style="title"] {
+    font-size: $size-title;
+  }
+  
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}

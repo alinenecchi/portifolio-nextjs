@@ -1,0 +1,10 @@
+@import '_colors';
+@import '_mixins';
+
+.molecule__loader-container {
+  position: relative;
+  height: calc(50vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

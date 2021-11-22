@@ -1,0 +1,19 @@
+@import '_colors';
+@import '_mixins';
+
+.atom__tophat-container {
+  position: relative;
+  color: $white;
+  font-weight: bold;
+  font-size: 17px;
+  display: inline-block;
+  margin: 0;
+
+  /******************************************
+   *      RESPONSIVITY (media queries)      *
+   ******************************************/
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}
