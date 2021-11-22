@@ -70,6 +70,7 @@ $color-dark-secondary-2: #23CDFD;
 $color-dark-secondary-3: #67DEFF;
 $color-dark-secondary-4: #99E9FF;
 $color-dark-secondary-5: #C4F2FF;
+$color-dark-secondary-6: #ddf5fc;
 // Warning
 $color-dark-warning: #FFD336;
 // danger
@@ -80,17 +81,7 @@ $color-dark-success-1: #A2DD00;
 $color-dark-success-2: #CDFD4A;
 
 
-  // n is number of stars required
-@function multiple-box-shadow ($n) {
-    $value: '#{random(3000)}px #{random(3000)}px #FFF';
-    @for $i from 2 through $n{
-    $value: '#{$value} , #{random(3000)}px #{random(3000)}px #FFF';
-    }
-    @return unquote($value)
-};
-$shadows-small:  multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big:    multiple-box-shadow(100);
+
 
 
 
