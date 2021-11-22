@@ -18,6 +18,7 @@
 
 body {
   background-color: white;
+  background:-webkit-linear-gradient(0, #1e11b1, rgb(99, 199, 32));
   color: $bg-dark-mode;
   font-family: "Open Sans";
 
@@ -77,9 +78,9 @@ body {
 }
 body.dark-mode {
   background:-webkit-linear-gradient(0, #120c56, #000000);
+  background:-webkit-linear-gradient(0, #281f85, purple);
   color: $white-text;
   width: auto;
-
   .stars{
     width: 3px;
     height: 3px;

@@ -8,9 +8,9 @@
 };
 
 @function multiple-box-shadow-light ($n) {
-    $value: '#{random(3000)}px #{random(3000)}px #00BFFF';
+    $value: '#{random(3000)}px #{random(3000)}px #9eeb10';
     @for $i from 2 through $n{
-    $value: '#{$value} , #{random(3000)}px #{random(3000)}px #00BFFF';
+    $value: '#{$value} , #{random(3000)}px #{random(3000)}px #9eeb10';
     }
     @return unquote($value)
 };
