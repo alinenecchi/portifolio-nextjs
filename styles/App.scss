@@ -46,7 +46,7 @@ body {
     height: 2px;
     background: transparent;
     box-shadow: $shadows-medium-light;
-    animation: animStar 100s linear infinite;
+    animation: anim-stars 100s linear infinite;
   }
   .stars2::after{
     content: " ";
@@ -63,7 +63,7 @@ body {
     height: 3px;
     background: transparent;
     box-shadow: $shadows-big-light;
-    animation: animStar 150s linear infinite;
+    animation: anim-stars 150s linear infinite;
   } 
   .stars3::after{
       content: " ";
@@ -79,7 +79,6 @@ body.dark-mode {
   background:-webkit-linear-gradient(0, #120c56, #000000);
   color: $white-text;
   width: auto;
-
   .stars{
     width: 3px;
     height: 3px;
@@ -140,7 +139,7 @@ body.dark-mode {
       transform: translateY(0px);
   }
   to {
-      transform: translateY(-150px);
+      transform: translateY(150px);
   }
 }
 @keyframes animStar{
