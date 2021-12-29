@@ -20,7 +20,7 @@ function Navbar (props) {
   >
     <nav className={css['navbar-container']}>
       <div className={css['logo-container']}>
-       <image className={css['logo-el']}><Logo/></image> 
+       <image className={css['logo-el']}></image> 
        <p className={css['content']}>Aline Ribeiro</p>
       </div>
     
@@ -31,6 +31,9 @@ function Navbar (props) {
     <div className={css['menu-items-container']}>
         <ul className={css['menu-items-list']}>
           <li><Link href="/">home</Link></li>
+        </ul>
+        <ul className={css['menu-items-list']}>
+          <li><Link href="/">blog</Link></li>
         </ul>
       </div>
 

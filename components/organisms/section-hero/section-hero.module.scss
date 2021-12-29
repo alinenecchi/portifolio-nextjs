@@ -1,0 +1,166 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.organism__section-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  
+  &[data-theme] {
+    color: $primary-white;
+    background: $secondary-orange;
+  }
+
+  & > .items-list {
+    position: relative;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: transparent transparent;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+
+    /* Hide scrollbar for IE, Edge add Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+      display: none;
+    }
+
+    & > .item {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      padding: 10.4rem 2.4rem 4.8rem;
+
+      list-style: none;
+      flex: 0 0 100%;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      & > .item-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        & > .play-button {
+          margin: 0 0 2.4rem;
+        }
+        
+        & > .play-button-hidden {
+          display: none;
+        }
+
+        & > .item-info {
+          max-width: 72.5rem;
+
+          &[data-center] {
+            max-width: 80.3rem;
+          }
+
+          & > .abstract {
+    
+            & > .title {
+              display: flex;
+              flex-direction: column;
+              color: $primary-white;
+              text-transform: uppercase;
+          
+              & > strong {
+                color: yellow;
+              }
+            }
+    
+            & > div > .description {
+              display: flex;
+              margin: 2.4rem 0 0 0;
+              color: $primary-white;
+            }
+          }
+        }
+      }
+
+      & > .item-content-end {
+        justify-content: center;
+
+        & > .play-button {
+          display: none;
+        }
+      }
+    }
+  }
+
+  & > .button {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 2.4rem;
+  }
+
+  & > .button-prev {
+    left: 0;
+  }
+  
+  & > .button-next {
+    right: 0;
+  }
+
+  & > .slider {
+    padding: 0 0 4.8rem;
+  }
+
+  @include gt-phone {
+    & > .items-list {
+      overflow-x: hidden;
+
+      & > .item {
+        padding: 30.8rem 6.4rem 12rem;
+
+        & > .item-content {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 7.4rem;
+
+          & > .play-button {
+            margin: unset;
+          }
+        }
+
+        & > .item-content-end {
+          justify-content: center;
+        }
+        
+      }
+    }
+
+    & > .button {
+      display: flex;
+      margin: 0 6.4rem;
+    }
+
+    & > .slider {
+      padding: 0 0 12rem;
+    }
+  }
+}

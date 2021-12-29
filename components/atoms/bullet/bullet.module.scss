@@ -1,0 +1,39 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.atom__bullet-container {
+  position: relative;
+  padding: 0;
+
+  border: 1px solid $primary-black;
+  width: 7.4rem;
+
+  &[data-theme] {
+    border-color: $primary-white;
+  }
+
+  &[data-selected] {
+    border-width: 3px;
+  }
+  
+  &[data-round] {
+    background: $primary-black;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 0;
+
+    &[data-theme] {
+      background: $primary-white;
+    }
+
+    &[data-selected] {
+      background: $primary-red;
+    }
+  }
+
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}

@@ -1,0 +1,152 @@
+@import 'colors';
+@import 'functions';
+
+.App {
+  color: $white;
+  height: auto;
+  text-align: center;
+  margin: 1rem auto;
+  h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    color:$primary;
+  }
+  p {
+    margin: 2rem 4rem ;
+  }
+}
+
+body {
+  background-color: white;
+  color: $bg-dark-mode;
+  font-family: "Open Sans";
+
+  .stars{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: $shadows-small-light;
+    animation: anim-stars 10s linear infinite;
+  }
+
+  .stars::after{
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small-light;
+    border-radius: 50%;
+  }
+
+  .stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium-light;
+    animation: anim-stars 100s linear infinite;
+  }
+  .stars2::after{
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium-light;
+  };
+  
+  .stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big-light;
+    animation: anim-stars 150s linear infinite;
+  } 
+  .stars3::after{
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big-light;
+  }
+}
+body.dark-mode {
+  background:-webkit-linear-gradient(0, #120c56, #000000);
+  color: $white-text;
+  width: auto;
+  .stars{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: anim-stars 10s linear infinite;
+  }
+
+  .stars::after{
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    border-radius: 50%;
+  }
+
+  .stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animStar 100s linear infinite;
+  }
+  .stars2::after{
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+  };
+  
+  .stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animStar 150s linear infinite;
+  } 
+  .stars3::after{
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big;
+  }
+}
+
+@keyframes anim-stars {
+  from {
+      transform: translateY(0px);
+  }
+  to {
+      transform: translateY(150px);
+  }
+}
+@keyframes animStar{
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}

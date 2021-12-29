@@ -1,0 +1,21 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.molecule__bullet-set-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  & > .bullet-round {
+    margin: 0 1rem;
+  }
+
+  & > .bullet {
+    margin: 0 1.9rem;
+  }
+
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}

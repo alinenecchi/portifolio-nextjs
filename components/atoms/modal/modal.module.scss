@@ -1,0 +1,46 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.atom__modal-container {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  
+  & > .iframe {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  & > .button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+
+    background: transparent;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid $primary-white;
+    color: $primary-white;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  
+  @include gt-phone {
+    & > .iframe {
+      padding: 6.4rem;
+      width: inherit;
+      height: inherit;
+    }
+  }
+}

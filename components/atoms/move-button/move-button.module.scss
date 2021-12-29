@@ -1,0 +1,40 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.atom__move-button-container {
+  position: relative;
+
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &[data-type="dark"] {
+    color: $primary-black;
+    border: 2px solid $primary-black;
+    & > svg {
+      path {
+        color: $primary-black;
+        fill: $primary-black;
+      }
+    }
+  }
+
+  &[data-type="light"] {
+    color: $primary-white;
+    border: 2px solid $primary-white;
+    & > svg {
+      path {
+        color: $primary-white;
+        fill: $primary-white;
+      }
+    }
+  }
+
+  @include gt-phone {
+    // TODO: add specifications for devices that are greater than phones
+    // example: .content { ... }
+  }
+}

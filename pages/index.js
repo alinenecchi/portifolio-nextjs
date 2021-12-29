@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
+import * as data from '../data/home';
 import Container from '../components/organisms/container';
-import Section from '../components/atoms/section';
+import SectionHero from '../components/organisms/section-hero';
 import Button from '../components/atoms/button';
 import Navbar from '../components/molecules/navbar';
 import Footer from '../components/molecules/footer';
@@ -12,6 +13,7 @@ export default function Home(props) {
 
   const {
     className = "",
+    sectionHero,
     children,
     ...other
   } = props;
@@ -63,7 +65,13 @@ export default function Home(props) {
             : 
             <Navbar/>
           }
-        </div>
+       </div>
+
+       <SectionHero
+        items={data.mock}
+        center
+        className={css["section-hero"]}
+      />
 
         <div className={css['info']}>
         {
@@ -74,12 +82,8 @@ export default function Home(props) {
             <Container/>
           }
         </div>
-       
-   
-     
-    </div>
- 
-    < div className={css['footer']}>
+
+        < div className={css['footer']}>
         {
             themeState === true 
             ?
@@ -89,7 +93,7 @@ export default function Home(props) {
           }
             
     </div>
-
+    </div>
 
   </div>;
 }

@@ -1,0 +1,26 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+
+.atom__playbutton-container {
+  position: relative;
+  // TODO: add default styles (usually focused on phones)
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 10.6rem;
+  height: 10.6rem;
+
+  border-color: white;
+  border-width: .2rem;
+  
+  /******************************************
+   *      RESPONSIVITY (media queries)      *
+   ******************************************/
+  @include gt-phone {
+    
+  }
+}
