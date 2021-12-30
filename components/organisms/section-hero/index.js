@@ -18,19 +18,19 @@ const itemsData = [
   {
     title: <><strong>lorem</strong> lorem</>,
     description: 'lorem',
-    image: "images/geometric.jpg",
+    image: "images/geometric.webp",
     video: null,
   },
   {
     title: <><strong>lorem</strong> lorem</>,
     description: 'lorem',
-    image: "images/light-bul.jpg",
+    image: "images/light-bul.webp",
     video: null,
   },
   {
     title: <><strong>lorem</strong> lorem</>,
     description: 'lorem',
-    image: "images/workspace.jpg",
+    image: "images/workspace.webp",
     video: null,
   },
 ];
