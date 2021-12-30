@@ -3,14 +3,14 @@
 
 .page__home-container {
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-    .navbar {
-      margin-top: -2rem;
-    }
+  .section-hero {
+    margin-bottom: 5rem;
+  }
 
 
   @include gt-phone {

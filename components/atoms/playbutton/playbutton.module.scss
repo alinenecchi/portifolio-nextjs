@@ -1,10 +1,10 @@
-@import 'utils/styles/_colors';
+@import '../../../utils/styles/colors';
 @import 'utils/styles/_mixins';
 
 .atom__playbutton-container {
   position: relative;
   // TODO: add default styles (usually focused on phones)
-  background: none;
+  background: red;
   padding: 0;
   cursor: pointer;
   display: flex;
@@ -14,8 +14,10 @@
   width: 10.6rem;
   height: 10.6rem;
 
-  border-color: white;
-  border-width: .2rem;
+  &[data-style="arrow-box"] {
+    border-color: white;
+    border-width: .2rem;
+  }
   
   /******************************************
    *      RESPONSIVITY (media queries)      *

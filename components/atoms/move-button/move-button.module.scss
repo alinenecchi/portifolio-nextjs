@@ -33,6 +33,17 @@
     }
   }
 
+  &[data-type="arrow"] {
+    color: $primary-white;
+    border: none;
+    & > svg {
+      path {
+        color: $primary-white;
+        fill: $primary-white;
+      }
+    }
+  }
+
   @include gt-phone {
     // TODO: add specifications for devices that are greater than phones
     // example: .content { ... }

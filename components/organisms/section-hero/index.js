@@ -93,9 +93,9 @@ function SectionHero (props) {
   const handlePrevSlide = () => {
     setCurrentSlide((oldState) => {
       const prev = currentSlide === 0 ?
-        items.slice(0, 3).length - 1 :
+        itemsData.slice(0, 3).length - 1 :
         oldState - 1;
-      setCurrentBackgroundImg(items[prev].image);
+      setCurrentBackgroundImg(itemsData[prev].image);
       changeSlide(prev);
       return prev;
     });
@@ -128,7 +128,7 @@ function SectionHero (props) {
   >
     <MoveButton
       className={`${css["button"]} ${css["button-prev"]}`}
-      type="light"
+      type="arrow"
       variant="left"
       onClick={handlePrevSlide}
     />
@@ -178,13 +178,14 @@ function SectionHero (props) {
       selected={currentSlide}
       list={itemsData.slice(0, 3)}
       dark={true}
+      round= {true}
       onClick={setCurrentSlide}
       className={css["slider"]}
     />
 
     <MoveButton
       className={`${css["button"]} ${css["button-next"]}`}
-      type="light"
+      type="arrow"
       onClick={handleNextSlide}
     />
 

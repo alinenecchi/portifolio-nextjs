@@ -13,12 +13,14 @@ function PlayButton (props) {
   const {
     className = "",
     children,
+    style,
     ...other
   } = props;
 
   return <button
     className={`${css["atom__playbutton-container"]} ${className}`}
     aria-label={"Play-Button"}
+    data-style={style}
     {...other}
   >
     <PlayArrow/>

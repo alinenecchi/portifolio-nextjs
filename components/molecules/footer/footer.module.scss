@@ -3,9 +3,9 @@
 
 .molecule__footer-container {
   position: relative;
-  color: white;
   font-family: "Open Sans";
   width: 100%;
+  box-shadow: 0.1px 0.1px 1px red($color: #000000b0);
 
   &[data-style="light"] {
     color: black;
