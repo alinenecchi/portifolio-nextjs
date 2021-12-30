@@ -3,13 +3,16 @@
 
 .page__home-container {
   position: relative;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  .app {
-    .button {
-      display: flex;
-      justify-content: flex-end;
+    .navbar {
+      margin-top: -2rem;
     }
-  }
+
+
   @include gt-phone {
     // TODO: add specifications for devices that are greater than phones
     // example: .content { ... }

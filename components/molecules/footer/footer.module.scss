@@ -6,7 +6,6 @@
   color: white;
   font-family: "Open Sans";
   width: 100%;
-  min-height: 30rem;
 
   &[data-style="light"] {
     color: black;
@@ -67,7 +66,17 @@
 
     .content {
       display: grid;
-      grid-template-columns: 40rem auto;
+      grid-template-columns: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .location{
+        margin: 0;
+      }
+      .contact {
+        margin: 0;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Section from '../../atoms/section';
-import Logo from '../../icons/Logo';
+import Button from '../../atoms/button';
 import Link from 'next/link';
 import css from "./navbar.module.scss";
 
@@ -12,6 +12,23 @@ function Navbar (props) {
     style,
     ...other
   } = props;
+
+  const [themeState, setThemeState] = useState();
+
+  const handleChange = () => {
+    setThemeState(!themeState);
+    if (themeState) {
+      localStorage.setItem('Theme', 'dark');
+      document.body.classList.add('dark-mode');
+    } else {
+      localStorage.setItem('Theme', 'light');
+      document.body.classList.remove('dark-mode');
+    }
+  }
+  useEffect(() => {
+    const getTheme = localStorage.getItem('Theme');
+    if (getTheme === 'dark') return  document.body.classList.add('dark-mode');
+  })
 
   return <Section
     className={`${css['molecule__navbar-container']} ${className}`}
@@ -34,6 +51,23 @@ function Navbar (props) {
         </ul>
         <ul className={css['menu-items-list']}>
           <li><Link href="/">blog</Link></li>
+        </ul>
+        <ul>
+          <li>
+           <div className={css['button']}>
+            {
+              themeState === true 
+              ?
+              <Button style="light" onClick={handleChange}>
+                {themeState ? 'Light Mode' : 'Dark Mode'}
+              </Button>
+              : 
+              <Button onClick={handleChange}>
+                {themeState ? 'Light Mode' : 'Dark Mode'}
+              </Button>
+            }
+            </div>
+          </li>
         </ul>
       </div>
 

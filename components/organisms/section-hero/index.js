@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Section from '../../atoms/section';
 
 import MoveButton from '../../atoms/move-button';
 import BulletSet from '../../molecules/bullet-set';

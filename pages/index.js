@@ -2,10 +2,9 @@ import React, {useState, useEffect } from 'react';
 import * as data from '../data/home';
 import Container from '../components/organisms/container';
 import SectionHero from '../components/organisms/section-hero';
-import Button from '../components/atoms/button';
 import Navbar from '../components/molecules/navbar';
 import Footer from '../components/molecules/footer';
-import css from '../styles/home.module.scss';
+import css from '../utils/styles/home.module.scss';
 
 
 
@@ -17,83 +16,44 @@ export default function Home(props) {
     children,
     ...other
   } = props;
+    const [themeState, setThemeState] = useState();
+    const [themeStyle, setThemeStyle] = useState("");
 
-  const [themeState, setThemeState] = useState();
+    useEffect(() => {
+      themeState === true ? setThemeStyle("light") : setThemeStyle("")
+      const getTheme = localStorage.getItem('Theme');
+      if (getTheme === 'dark') return  document.body.classList.add('dark-mode');
+    })
 
-  const handleChange = () => {
-    setThemeState(!themeState);
-    if (themeState) {
-      localStorage.setItem('Theme', 'dark');
-      document.body.classList.add('dark-mode');
-    } else {
-      localStorage.setItem('Theme', 'light');
-      document.body.classList.remove('dark-mode');
-    }
-  }
-  useEffect(() => {
-    const getTheme = localStorage.getItem('Theme');
-    if (getTheme === 'dark') return  document.body.classList.add('dark-mode');
-  })
 
   return <div
     className={`${css['page__home-container']} ${className}`}
     {...other}
   >
-    <div className={css['app']}>
+
       <div class="stars" ></div>
       <div class="stars2" ></div>
       <div class="stars3" ></div>
-      <div className={css['button']}>
-        {
-          themeState === true 
-          ?
-          <Button style="light" onClick={handleChange}>
-            {themeState ? 'Light Mode' : 'Dark Mode'}
-          </Button>
-          : 
-          <Button onClick={handleChange}>
-            {themeState ? 'Light Mode' : 'Dark Mode'}
-          </Button>
-        }
-      </div>
-
-      <div className={css['navbar']}>
-          {
-            themeState === true
-            ?
-            <Navbar style="light"/>
-            : 
-            <Navbar/>
-          }
-       </div>
-
-       <SectionHero
+  
+      <Navbar 
+        className={css['navbar']} 
+        style={themeStyle}
+      />
+      
+      <SectionHero
         items={data.mock}
         center
         className={css["section-hero"]}
       />
 
-        <div className={css['info']}>
-        {
-            themeState === true
-            ?
-            <Container style="light"/>
-            : 
-            <Container/>
-          }
-        </div>
-
-        < div className={css['footer']}>
-        {
-            themeState === true 
-            ?
-            <Footer style="light"/>
-            : 
-            <Footer/>
-          }
-            
-    </div>
-    </div>
+      <Container  
+        style={themeStyle}
+      />
+    
+      <Footer
+        className={css['footer']}  
+        style={themeStyle}
+      />
 
   </div>;
 }

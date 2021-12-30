@@ -3,31 +3,20 @@
 }
 
 html, body {
-  height: 100%;
   font-size: 10px;
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
 }
 
 body {
   font-size: 1.4rem;
   background-color: #fff;
-  
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  font-smoothing: antialiased;
-  webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#root {
-  height: 100%;
 }
 
 svg {
@@ -37,6 +26,10 @@ svg {
 a {
   text-decoration: none;
   color: inherit;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
 }
 
 @media (prefers-reduced-motion) {

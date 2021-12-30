@@ -1,11 +1,16 @@
-@import 'colors';
-@import 'functions';
+@import './colors';
+@import './functions';
 
 .App {
   color: $white;
-  height: auto;
   text-align: center;
   margin: 1rem auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
   h1 {
     font-weight: 800;
     font-size: 2rem;
@@ -79,6 +84,7 @@ body.dark-mode {
   background:-webkit-linear-gradient(0, #120c56, #000000);
   color: $white-text;
   width: auto;
+
   .stars{
     width: 3px;
     height: 3px;

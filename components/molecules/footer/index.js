@@ -17,12 +17,14 @@ function Footer (props) {
   >
     <Section>
       <div className={css['content']}>
+
         <div className={css['location']}>
           <span className={css['highlight']}>Porto Alegre<br/></span>
           <p className={css['smallText']}>
             Brasil<br/>
           </p>
         </div>
+
         <div className={css['contact']}>
           <a href="mailto:alinenecchi@gmail.com" className={css['mail']}>alinenecchi@gmail.com</a>
           <p className={css['smallText']}>
@@ -30,6 +32,7 @@ function Footer (props) {
             <a href="https://github.com/alinenecchi" target="blanck" className={css['link']}>GitHub</a>
           </p>
         </div>
+        
       </div>
     </Section>
   </div>;
