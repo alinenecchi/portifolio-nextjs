@@ -31,9 +31,31 @@
   }
 
   .theme-toggle-button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 1000;
+    button {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 9rem;
+      right: 1rem;
+      z-index: 1000;
+      cursor: pointer;
+      font-size: 24px;
+      padding: 1rem;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    &:hover {
+      border: none;
+    }
+  }
+
+  .light-mode {
+    background-color: $color-dark-secondary-3;
+  }
+
+  .dark-mode {
+    background-color: #333;
   }
 }

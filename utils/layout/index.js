@@ -34,18 +34,28 @@ const Layout = ({ children }) => {
       <div className="stars2"></div>
       <div className="stars3"></div>
 
-      <Header className={css["header"]} style={themeStyle}/>
+      <Header className={css["header"]} style={themeStyle} />
 
       <main>{children}</main>
 
       <Footer className={css["footer"]} style={themeStyle} />
-
+      {/* 
       <Button
         className={css["theme-toggle-button"]}
         onClick={handleThemeChange}
       >
-        {themeState ? "Light Mode" : "Dark Mode"}
-      </Button>
+        {themeState ? "☀️" : "🌙"}
+      </Button> */}
+      <div className={css["theme-toggle-button"]}>
+        <Button
+          className={css[themeState ? "dark-mode" : "light-mode"]}
+          onClick={handleThemeChange}
+        >
+          <span className={css[themeState ? "moon" : "sun"]} aria-hidden="true">
+            {themeState ? "🌙" : "☀️"}
+          </span>
+        </Button>
+      </div>
     </div>
   );
 };
