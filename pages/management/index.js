@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import { fetchProducts, addProduct, updateProduct } from "../../utils/services/productService";
+import React, { useState, useRef } from "react";
+import {
+  fetchProducts,
+  addProduct,
+  updateProduct,
+} from "../../utils/services/productService";
 import ProductTable from "components/molecules/product-table";
 import ProductForm from "components/molecules/product-form";
 import Section from "components/atoms/section";
@@ -19,7 +23,6 @@ function Management({ initialProducts }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formRef = useRef(null);
 
-
   const loadProducts = async () => {
     const fetchedProducts = await fetchProducts();
     setProducts(fetchedProducts);
@@ -28,22 +31,21 @@ function Management({ initialProducts }) {
   const handleAddProduct = async (newProduct) => {
     try {
       await addProduct(newProduct);
-      setIsFormVisible(false);
-         router.replace(router.asPath);
     } catch (error) {
-      console.error("Error:", error);
       alert("Ocorreu um erro ao adicionar o produto");
+    } finally {
+      setIsFormVisible(false);
     }
   };
 
   const handleUpdateProduct = async (updatedProduct) => {
     try {
       await updateProduct(updatedProduct);
+    } catch (error) {
+      alert("Ocorreu um erro ao atualizar o produto");
+    } finally {
       setProductToEdit(null);
       setIsFormVisible(false);
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Ocorreu um erro ao atualizar o produto");
     }
   };
 
@@ -94,6 +96,7 @@ function Management({ initialProducts }) {
           />
         </div>
       )}
+
     </Section>
   );
 }

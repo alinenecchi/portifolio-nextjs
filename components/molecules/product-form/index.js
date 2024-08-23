@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import css from "./product-form.module.scss";
 
-function ProductForm({ onAddProduct, onUpdateProduct, productToEdit, className = "", onCancel }) {
+function ProductForm({
+  onAddProduct,
+  onUpdateProduct,
+  productToEdit,
+  className = "",
+  onCancel,
+}) {
   const [product, setProduct] = useState({
     id: "",
     image: "",
@@ -42,10 +48,14 @@ function ProductForm({ onAddProduct, onUpdateProduct, productToEdit, className =
         await onAddProduct(product);
         alert("Produto adicionado com sucesso");
       }
-      onCancel(); // Fecha o formulário após o envio
+      onCancel();
     } catch (error) {
       console.error("Error:", error);
       alert("Ocorreu um erro ao salvar o produto");
+    } finally {
+      setTimeout(() => {
+        window.location.reload();
+      }, 100); 
     }
   };
 
