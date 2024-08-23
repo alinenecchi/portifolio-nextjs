@@ -1,0 +1,42 @@
+@import "utils/styles/_colors";
+@import "utils/styles/_mixins";
+@import "utils/styles/_sizes";
+
+.page-products {
+  padding: $s-l;
+
+  h1 {
+    font-size: $font-size-xxl;
+    margin-bottom: $s-m;
+    text-align: center;
+    color: $color-primary;
+  }
+
+  .product-form {
+    margin-top: $s-l;
+
+    .cancel-button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
+
+  .add-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

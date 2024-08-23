@@ -1,0 +1,50 @@
+@import "utils/styles/_colors";
+@import "utils/styles/_mixins";
+@import "utils/styles/_sizes";
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: $s-z;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      margin-bottom: $s-zz;
+    }
+
+    input,
+    textarea {
+      padding: $s-zz;
+      border: 1px solid #ddd;
+      border-radius: $s-zz;
+    }
+  }
+
+  .button {
+    padding: $s-zz;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: $s-zz;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #005bb5;
+    }
+  }
+
+  .cancel-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}

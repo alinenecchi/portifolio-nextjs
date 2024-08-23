@@ -2,28 +2,16 @@ import React from "react";
 import CardList from "../../components/molecules/card-list";
 import Section from "components/atoms/section";
 
+import { fetchProducts } from "../../utils/services/productService";
+
 import css from "./product.module.scss";
 
 export async function getStaticProps() {
-  try {
-    const apiUrl = `${process.env.API_URL}/all`;
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error("Failed to fetch products");
-    }
-
-    const products = await response.json();
-
-    return {
-      props: { products },
-      revalidate: 60,
-    };
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    return {
-      props: { products: [] },
-    };
-  }
+  const products = await fetchProducts();
+  return {
+    props: { products },
+    revalidate: 60,
+  };
 }
 
 function ProductsPage({ products, ...props }) {

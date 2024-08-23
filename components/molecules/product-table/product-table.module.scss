@@ -1,0 +1,46 @@
+@import "utils/styles/_colors";
+@import "utils/styles/_mixins";
+@import "utils/styles/_sizes";
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $s-s 0;
+
+  th, td {
+    padding: $s-zz;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4f4f4;
+  }
+
+  button {
+    padding: $s-z;
+    margin: 0 $s-z;
+    color: white;
+    border: none;
+    border-radius: $s-zz;
+    cursor: pointer;
+  }
+
+  .button-edit {
+    background-color: #0070f3;
+
+    &:hover {
+      background-color: #005bb5;
+    }
+
+  }
+
+  .button-delete {
+    background-color: $primary-red;
+
+    &:hover {
+      background-color: #005bb5;
+    }
+
+  }
+}
