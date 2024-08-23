@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import { useRouter } from "next/router";
-import css from "./product.module.scss";
-import Section from "components/atoms/section";
-import Button from "components/atoms/button";
+import Section from "../../components/atoms/section";
+import Button from "../../components/atoms/button";
 import Title from "components/atoms/title";
+
+import css from "./product.module.scss";
 
 const ProductPage = ({ product }) => {
   const router = useRouter();
@@ -15,7 +18,6 @@ const ProductPage = ({ product }) => {
   if (!product || Object.keys(product).length === 0) {
     return <div>Product not found.</div>;
   }
-
 
   return (
     <Section className={css["product-page"]}>
@@ -60,7 +62,7 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.error("Error fetching product data:", error);
     return {
-      props: { product: {} }
+      props: { product: {} },
     };
   }
 }

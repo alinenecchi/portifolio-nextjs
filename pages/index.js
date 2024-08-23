@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Section from "components/atoms/section";
-import css from "./home.module.scss";
 import Card from "components/molecules/card";
+import css from "./home.module.scss";
 
 export async function getStaticProps() {
   try {
@@ -40,37 +39,35 @@ function Home({ products, ...props }) {
   const featuredProduct = products.length > 0 ? products[featuredIndex] : null;
 
   return (
-    <Section>
-      <div className={`${css["container"]} ${className}`}>
-        <header className={css["header"]}>
-          <h1>Bem-vindo ao Nosso Site</h1>
-          <p>Explore nossos produtos e soluções inovadoras.</p>
-        </header>
+    <div className={`${css["container"]} ${className}`}>
+      <header className={css["header"]}>
+        <h1>Bem-vindo ao Nosso Site</h1>
+        <p>Explore nossos produtos e soluções inovadoras.</p>
+      </header>
 
-        {featuredProduct ? (
-          <section className={`${css["card-list"]} ${css["featured-product"]}`}>
-            <h2>Produto em Destaque</h2>
-            <Card
-              key={featuredProduct.id}
-              data={featuredProduct}
-              className={css["product-card"]}
-            />
-          </section>
-        ) : (
-          <section className={`${css["card-list"]} ${css["featured-product"]}`}>
-            <h2>Produto em Destaque</h2>
-            <p>Sem produtos disponíveis no momento.</p>
-          </section>
-        )}
+      {featuredProduct ? (
+        <section className={`${css["card-list"]} ${css["featured-product"]}`}>
+          <h2>Produto em Destaque</h2>
+          <Card
+            key={featuredProduct.id}
+            data={featuredProduct}
+            className={css["product-card"]}
+          />
+        </section>
+      ) : (
+        <section className={`${css["card-list"]} ${css["featured-product"]}`}>
+          <h2>Produto em Destaque</h2>
+          <p>Sem produtos disponíveis no momento.</p>
+        </section>
+      )}
 
-        <footer className={css["footer"]}>
-          <p>
-            &copy; {new Date().getFullYear()} Nossa Empresa. Todos os direitos
-            reservados.
-          </p>
-        </footer>
-      </div>
-    </Section>
+      <footer className={css["footer"]}>
+        <p>
+          &copy; {new Date().getFullYear()} Nossa Empresa. Todos os direitos
+          reservados.
+        </p>
+      </footer>
+    </div>
   );
 }
 
