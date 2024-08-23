@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
+
 import { fetchProducts, addProduct, updateProduct } from "../../utils/services/productService";
 import ProductTable from "components/molecules/product-table";
 import ProductForm from "components/molecules/product-form";
@@ -42,7 +42,6 @@ function Management({ initialProducts }) {
       await updateProduct(updatedProduct);
       setProductToEdit(null);
       setIsFormVisible(false);
-      router.replace(router.asPath);
     } catch (error) {
       console.error("Error:", error);
       alert("Ocorreu um erro ao atualizar o produto");

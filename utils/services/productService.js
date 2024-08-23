@@ -15,8 +15,10 @@ export async function fetchProducts() {
 }
 
 export async function addProduct(newProduct) {
+
+  const API_URL = 'https://fullstack-app-mu.vercel.app/api/products';
   try {
-    const res = await fetch(apiUrl, {
+    const res = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
