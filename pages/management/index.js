@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import { fetchProducts, addProduct, updateProduct } from "../../utils/services/productService";
 import ProductTable from "components/molecules/product-table";
 import ProductForm from "components/molecules/product-form";
@@ -19,7 +18,7 @@ function Management({ initialProducts }) {
   const [productToEdit, setProductToEdit] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formRef = useRef(null);
-  const router = useRouter();
+
 
   const loadProducts = async () => {
     const fetchedProducts = await fetchProducts();
@@ -30,7 +29,7 @@ function Management({ initialProducts }) {
     try {
       await addProduct(newProduct);
       setIsFormVisible(false);
-      router.replace(router.asPath);
+         router.replace(router.asPath);
     } catch (error) {
       console.error("Error:", error);
       alert("Ocorreu um erro ao adicionar o produto");
