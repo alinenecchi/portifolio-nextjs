@@ -39,13 +39,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
 
       <Footer className={css["footer"]} style={themeStyle} />
-      {/* 
-      <Button
-        className={css["theme-toggle-button"]}
-        onClick={handleThemeChange}
-      >
-        {themeState ? "☀️" : "🌙"}
-      </Button> */}
+
       <div className={css["theme-toggle-button"]}>
         <Button
           className={css[themeState ? "dark-mode" : "light-mode"]}
