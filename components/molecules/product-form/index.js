@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import css from "./product-form.module.scss";
 
-function ProductForm({ onSubmit, productToEdit, className = "", onCancel }) {
+function ProductForm({ onAddProduct, onUpdateProduct, productToEdit, className = "", onCancel }) {
   const [product, setProduct] = useState({
     id: "",
     image: "",
@@ -35,22 +35,14 @@ function ProductForm({ onSubmit, productToEdit, className = "", onCancel }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/products", {
-        method: productToEdit ? "PUT" : "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit product");
+      if (productToEdit) {
+        await onUpdateProduct(product);
+        alert("Produto atualizado com sucesso");
+      } else {
+        await onAddProduct(product);
+        alert("Produto adicionado com sucesso");
       }
-
-      await response.json();
-      alert("Produto salvo com sucesso"); // Mostrar mensagem de sucesso
-
-      onSubmit(product); // Chama onSubmit após salvar
+      onCancel(); // Fecha o formulário após o envio
     } catch (error) {
       console.error("Error:", error);
       alert("Ocorreu um erro ao salvar o produto");

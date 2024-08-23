@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { fetchProducts } from "../../utils/services/productService";
+import { useRouter } from "next/router";
+import { fetchProducts, addProduct, updateProduct } from "../../utils/services/productService";
 import ProductTable from "components/molecules/product-table";
 import ProductForm from "components/molecules/product-form";
 import Section from "components/atoms/section";
@@ -18,18 +19,7 @@ function Management({ initialProducts }) {
   const [productToEdit, setProductToEdit] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formRef = useRef(null);
-
-  useEffect(() => {
-    // Hide the form when the user clicks outside of it
-    function handleClickOutside(event) {
-      if (formRef.current && !formRef.current.contains(event.target)) {
-        setIsFormVisible(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const router = useRouter();
 
   const loadProducts = async () => {
     const fetchedProducts = await fetchProducts();
@@ -37,15 +27,26 @@ function Management({ initialProducts }) {
   };
 
   const handleAddProduct = async (newProduct) => {
-    await fetch("/api/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    });
-    await loadProducts();
-    setIsFormVisible(false);
+    try {
+      await addProduct(newProduct);
+      setIsFormVisible(false);
+      router.replace(router.asPath);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Ocorreu um erro ao adicionar o produto");
+    }
+  };
+
+  const handleUpdateProduct = async (updatedProduct) => {
+    try {
+      await updateProduct(updatedProduct);
+      setProductToEdit(null);
+      setIsFormVisible(false);
+      router.replace(router.asPath);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Ocorreu um erro ao atualizar o produto");
+    }
   };
 
   const handleEditProduct = (product) => {
@@ -54,23 +55,15 @@ function Management({ initialProducts }) {
   };
 
   const handleDeleteProduct = async (id) => {
-    await fetch(`/api/products/${id}`, {
-      method: "DELETE",
-    });
-    await loadProducts();
-  };
-
-  const handleUpdateProduct = async (updatedProduct) => {
-    await fetch(`/api/products/${updatedProduct.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    });
-    await loadProducts();
-    setProductToEdit(null);
-    setIsFormVisible(false);
+    try {
+      await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
+      await loadProducts();
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Ocorreu um erro ao excluir o produto");
+    }
   };
 
   const handleShowAddForm = () => {
@@ -96,7 +89,8 @@ function Management({ initialProducts }) {
       {isFormVisible && (
         <div ref={formRef} className={css["form-container"]}>
           <ProductForm
-            onSubmit={productToEdit ? handleUpdateProduct : handleAddProduct}
+            onAddProduct={handleAddProduct}
+            onUpdateProduct={handleUpdateProduct}
             productToEdit={productToEdit}
             onCancel={handleCancelForm}
           />
