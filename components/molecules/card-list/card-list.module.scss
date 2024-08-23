@@ -1,0 +1,53 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+@import "utils/styles/_sizes";
+
+.card-list {
+  padding: $s-s;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $s-s;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: $s-s;
+  flex-wrap: wrap;
+}
+
+.page-button {
+  background-color: $primary;
+  border: none;
+  color: $white;
+  padding: $s-zs $s-sm;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: $text-size-micro;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-button:hover {
+  background-color: $color-secondary-5;
+  transform: scale(1.05);
+}
+
+.page-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.active {
+  background-color: $secondary-yellow;
+  font-weight: bold;
+}
+
+.ellipsis {
+  padding: $s-zs $s-sm;
+  color: $primary;
+}
