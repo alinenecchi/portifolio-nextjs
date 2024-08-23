@@ -1,77 +1,51 @@
-import React, {useState, useEffect} from 'react';
-import Section from '../../atoms/section';
-import Button from '../../atoms/button';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import css from "./navbar.module.scss";
 
+function Navbar(props) {
+  const { className = "", children, ...other } = props;
+  const [isMenuActive, SetIsMenuActive] = useState(false);
+  const [isMenuMobileActive, SetIsMenuMobileActive] = useState(false);
 
-function Navbar (props) {
-  const {
-    className = "",
-    children,
-    style,
-    ...other
-  } = props;
+  function closeMenu() {
+    SetIsMenuActive(false);
+  }
 
-  const [themeState, setThemeState] = useState();
-
-  const handleChange = () => {
-    setThemeState(!themeState);
-    if (themeState) {
-      localStorage.setItem('Theme', 'dark');
-      document.body.classList.add('dark-mode');
-    } else {
-      localStorage.setItem('Theme', 'light');
-      document.body.classList.remove('dark-mode');
+  function mobileNavigationToggler() {
+    SetIsMenuMobileActive(!isMenuMobileActive);
+    if (isMenuMobileActive) {
+      closeMenu();
     }
   }
-  useEffect(() => {
-    const getTheme = localStorage.getItem('Theme');
-    if (getTheme === 'dark') return  document.body.classList.add('dark-mode');
-  })
+  const pages = [
+    { href: "/", label: "Home" },
+    { href: "/products", label: "Products" },
+  ];
 
-  return <Section
-    className={`${css['molecule__navbar-container']} ${className}`}
-    data-style={style}
-    {...other}
-  >
-    <nav className={css['navbar-container']}>
-      <div className={css['logo-container']}>
-       <image className={css['logo-el']}></image> 
-       <p className={css['content']}>Aline Ribeiro</p>
-      </div>
-    
-      <div className={css['menu-burger-container']}>
-        =
-      </div>
-    </nav>
-    <div className={css['menu-items-container']}>
-        <ul className={css['menu-items-list']}>
-          <li><Link href="/">home</Link></li>
-        </ul>
-        <ul className={css['menu-items-list']}>
-          <li><Link href="/">blog</Link></li>
-        </ul>
-        <ul>
-          <li>
-           <div className={css['button']}>
-            {
-              themeState === true 
-              ?
-              <Button style="light" onClick={handleChange}>
-                {themeState ? 'Light Mode' : 'Dark Mode'}
-              </Button>
-              : 
-              <Button onClick={handleChange}>
-                {themeState ? 'Light Mode' : 'Dark Mode'}
-              </Button>
-            }
-            </div>
+  return (
+    <nav
+      className={`${css["main-navigation"]} ${className}`}
+      id="navigation"
+      data-is-menu-active={isMenuActive}
+      data-is-mobile-menu-active={isMenuMobileActive}
+    >
+      <button
+        className={css["navigation-toogler"]}
+        onClick={mobileNavigationToggler}
+      >
+        <span className={css["navigation-toogler__burguer"]}>
+          <span data-visuallyhidden></span>
+        </span>
+      </button>
+      <ul className={css["navigation-list"]}>
+        {pages.map((page) => (
+          <li key={page.href}>
+            <Link href={page.href}>{page.label}</Link>
           </li>
-        </ul>
-      </div>
-
-  </Section>;
+        ))}
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;

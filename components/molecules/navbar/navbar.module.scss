@@ -1,85 +1,155 @@
-@import 'utils/styles/_colors';
-@import 'utils/styles/_mixins';
+@import "utils/styles/_colors";
+@import "utils/styles/_mixins";
+@import "utils/styles/_sizes";
 
-.molecule__navbar-container {
-  position: sticky;
-  top: 0;
-  z-index: 888888;
-  display: none;
-  font-size: 1.5rem;
-  font-weight: 600;
+/* VARIABLES
+========================================================================== */
+$navigation-hamburger-stick-width: 2.1rem;
+$navigation-hamburger-stick-height: 1px;
+$media-query-min-size: 1281px;
+$media-query-max-size: 1280px;
 
-  .navbar-container {
-    display: flex;
+.main-navigation {
+  position: relative;
+  padding-right: 2rem;
+
+  &[data-is-mobile-menu-active="true"] {
+    @include mediaMax($media-query-max-size) {
+      .navigation-toogler__burguer {
+        height: 0;
+
+        &:before,
+        &:after {
+          top: 0;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+
+      .navigation-list {
+        display: flex;
+        position: fixed;
+        left: 0;
+
+        width: 100vw;
+        height: 100%;
+
+        padding: $s-md;
+        overflow-y: auto;
+
+        animation: openNavigationModal $basic-transition ease 1 normal forwards;
+      }
+    }
+  }
+
+  /* MENU BUTTON
+  ========================================================================== */
+  .navigation-toogler {
+    border: none;
+    transition: opacity ease $basic-transition;
+    background: $c-gray-4;
     padding: 1rem;
-  }
-  
-  .logo-container {
-    display: none;
-    text-align: center;
 
-    .content {
-      align-items: center;
-      text-align: center;
-    }
-    .logo-el svg{
-        width: 100px;
-        height: 100px;
-    }
-    .logo-el path{
-      fill: white;
-    }
-  }
-
-  .menu-items-container {
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-
-    .menu-items-list {
-      list-style: none;
-      gap: 1rem;
-      //gap: 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      flex-direction: column;
-      align-content: center;
-     
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-
-  // .menu-burger-container {
-  //   // 
-  // }
-  &[data-style="light"] {
-    .logo-container {
-      .logo-el path{
-        fill: black;
-      }
-    }
-  }
-  /******************************************
-   *      RESPONSIVITY (media queries)      *
-   ******************************************/
-  @include gt-phone {
-    display: flex;
- 
-    .logo-container {
-      display: block;
-      margin: 0 auto;
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+      transition: opacity ease $basic-transition;
     }
 
-    .menu-items-container {
-      .menu-items-list {
-        flex-direction: row;
-      }
-    }
-
-    .menu-burger-container {
+    @include mediaMin($media-query-min-size) {
       display: none;
+    }
+  }
+
+  .navigation-toogler__burguer {
+    display: inline-block;
+    position: relative;
+
+    width: $navigation-hamburger-stick-width;
+    height: $navigation-hamburger-stick-height;
+    background-color: currentColor;
+
+    color: $black;
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0;
+
+      width: $navigation-hamburger-stick-width;
+      height: $navigation-hamburger-stick-height;
+      border-radius: 6px;
+
+      background-color: currentColor;
+      content: "";
+      transition: all 0.3s;
+    }
+
+    &:before {
+      top: -$s-zs;
+    }
+
+    &:after {
+      top: $s-zs;
+    }
+  }
+
+  /* MENU LIST
+  ========================================================================== */
+  .navigation-list {
+    display: none;
+    background: $white;
+    color: $black;
+
+    flex-direction: column;
+    gap: $s-s;
+
+    @include mediaMin($media-query-min-size) {
+      display: inline-flex;
+      flex-direction: row;
+      background: none;
+      color: currentColor;
+    }
+  }
+
+  /* CLOSE MENU BUTTON
+  ========================================================================== */
+  .close-button {
+    position: absolute;
+    top: $s-lg;
+    right: 0;
+
+    border: none;
+
+    color: $black;
+  }
+
+  .close-button__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    path {
+      stroke: currentColor;
+      stroke-width: 1px;
+    }
+  }
+
+  /* ANIMATIONS
+  ========================================================================== */
+  // OPEN NAVIGATION MODAL ANIMATION
+  @keyframes openNavigationModal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }

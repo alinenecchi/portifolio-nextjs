@@ -1,0 +1,62 @@
+@import 'utils/styles/_colors';
+@import 'utils/styles/_mixins';
+@import 'utils/styles/_sizes';
+
+/* VARIABLES
+========================================================================== */
+$search-button-mobile-top: 0.3rem;
+$media-query-min-size: 1281px;
+
+.header-wrapper {
+  z-index: $z-index-sky;
+  position: sticky;
+  top: 0;
+  height: $main-header-height; 
+  padding: $s-md 0;
+  border-bottom: solid 1px $c-gray-3;
+  transition: height 0.3s linear 0.4s;
+
+
+  &[data-is-rendering] {
+    height: 100vh;
+
+    .header-navigation {
+      opacity: 0 !important;
+    }
+  }
+
+  @include gt-tablet {
+    padding: $s-s 0;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .header-navigation {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    margin-left: auto;
+    gap: $s-lg;
+
+    opacity: 1;
+    transition: opacity linear 0.2s 0.1s;
+
+    @include mediaMin($media-query-min-size) {
+      flex-direction: row;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}

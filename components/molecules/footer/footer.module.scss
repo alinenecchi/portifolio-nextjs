@@ -1,15 +1,9 @@
-@import 'utils/styles/_colors';
-@import 'utils/styles/_mixins';
+@import "utils/styles/_colors";
+@import "utils/styles/_mixins";
 
 .molecule__footer-container {
   position: relative;
   font-family: "Open Sans";
-  width: 100%;
-  box-shadow: 0.1px 0.1px 1px red($color: #000000b0);
-
-  &[data-style="light"] {
-    color: black;
-  }
 
   a {
     text-decoration: none;
@@ -42,7 +36,7 @@
     align-self: center;
     padding: 0 1rem;
   }
-  
+
   .contact {
     position: relative;
     text-align: right;
@@ -57,21 +51,16 @@
     }
   }
 
-
-
   /******************************************
    *      RESPONSIVITY (media queries)      *
    ******************************************/
   @include gt-phone {
-
     .content {
-      display: grid;
-      grid-template-columns: auto;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
-      .location{
+      .location {
         margin: 0;
       }
       .contact {
