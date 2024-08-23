@@ -27,11 +27,29 @@ function Management({ initialProducts }) {
   const formRef = useRef(null);
 
   const handleAddProduct = async (newProduct) => {
-    await addProduct(newProduct);
+    try {
+      await addProduct(newProduct);
+    } catch (error) {
+      alert("Ocorreu um erro ao adicionar o produto");
+    } finally {
+      setIsFormVisible(false);
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
   };
 
   const handleUpdateProduct = async (product) => {
-    await updateProduct(product);
+    try {
+      await updateProduct(product);
+    } catch (error) {
+      alert("Ocorreu um erro ao Atualizar o produto");
+    } finally {
+      setIsFormVisible(false);
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
   };
 
   const handleEditProduct = (product) => {
