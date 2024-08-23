@@ -1,6 +1,6 @@
 import React from "react";
 
-import css from "../utils/styles/home.module.scss";
+import css from "./home.module.scss";
 
 export default function Home(props) {
   const { className = "", children, ...other } = props;
