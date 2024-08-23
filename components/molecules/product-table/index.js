@@ -7,7 +7,7 @@ function ProductTable({ products, onEdit, onDelete, className = "" }) {
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Descrição</th>
+          <th>Categorias</th>
           <th>Preço</th>
           <th>Ações</th>
         </tr>
@@ -16,14 +16,14 @@ function ProductTable({ products, onEdit, onDelete, className = "" }) {
         {products.map((product) => (
           <tr key={product.id}>
             <td>{product.name}</td>
-            <td>{product.description}</td>
+            <td>{product.categories}</td>
             <td>${product.price.toFixed(2)}</td>
             <td>
               <button onClick={() => onEdit(product)} className={css["button-edit"]}>
                 ✏️
               </button>
               <button
-                onClick={() => onDelete(product.id)}
+                onClick={() => onDelete(product)}
                 className={css["button-delete"]}
               >
                 🗑️

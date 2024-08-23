@@ -55,7 +55,7 @@ function ProductForm({
     } finally {
       setTimeout(() => {
         window.location.reload();
-      }, 100); 
+      }, 100);
     }
   };
 

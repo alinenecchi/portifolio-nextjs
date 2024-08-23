@@ -19,8 +19,8 @@ function Navbar(props) {
   }
   const pages = [
     { href: "/", label: "Home" },
-    { href: "/products", label: "Products" },
-    { href: "/management", label: "Product Management" },
+    { href: "/products", label: "Produtos" },
+    { href: "/management", label: "Gerenciar Produtos" },
   ];
 
   return (

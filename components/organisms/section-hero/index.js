@@ -53,11 +53,10 @@ function SectionHero (props) {
   ] = useState(itemsData[0].image);
 
   useEffect(() => {
-    console.log(1234,items);
     const observerOptions = {
       root: document.body,
       rootMargin: '0px',
-      threshold: 0.6 // means that when 60% of the target is visible within the element specified by the root option, the callback is invoked.
+      threshold: 0.6
     };
 
     const observerCallback = (entries) => {

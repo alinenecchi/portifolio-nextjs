@@ -3,10 +3,12 @@ import {
   fetchProducts,
   addProduct,
   updateProduct,
+  deleteProduct,
 } from "../../utils/services/productService";
 import ProductTable from "components/molecules/product-table";
 import ProductForm from "components/molecules/product-form";
 import Section from "components/atoms/section";
+import Modal from "components/molecules/modal";
 import css from "./management.module.scss";
 
 export async function getStaticProps() {
@@ -18,35 +20,18 @@ export async function getStaticProps() {
 }
 
 function Management({ initialProducts }) {
-  const [products, setProducts] = useState(initialProducts);
   const [productToEdit, setProductToEdit] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
   const formRef = useRef(null);
 
-  const loadProducts = async () => {
-    const fetchedProducts = await fetchProducts();
-    setProducts(fetchedProducts);
-  };
-
   const handleAddProduct = async (newProduct) => {
-    try {
-      await addProduct(newProduct);
-    } catch (error) {
-      alert("Ocorreu um erro ao adicionar o produto");
-    } finally {
-      setIsFormVisible(false);
-    }
+    await addProduct(newProduct);
   };
 
-  const handleUpdateProduct = async (updatedProduct) => {
-    try {
-      await updateProduct(updatedProduct);
-    } catch (error) {
-      alert("Ocorreu um erro ao atualizar o produto");
-    } finally {
-      setProductToEdit(null);
-      setIsFormVisible(false);
-    }
+  const handleUpdateProduct = async (product) => {
+    await updateProduct(product);
   };
 
   const handleEditProduct = (product) => {
@@ -54,16 +39,37 @@ function Management({ initialProducts }) {
     setIsFormVisible(true);
   };
 
-  const handleDeleteProduct = async (id) => {
+  const handleDeleteProduct = async (product) => {
     try {
-      await fetch(`/api/products/${id}`, {
-        method: "DELETE",
-      });
-      await loadProducts();
+      await deleteProduct(product?.id);
+      setIsModalVisible(false);
+      alert(
+        `Produto name:${productToDelete?.name} id:${productToDelete?.id} deletado com sucesso`
+      );
     } catch (error) {
       console.error("Error:", error);
       alert("Ocorreu um erro ao excluir o produto");
+    } finally {
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     }
+  };
+
+  const showDeleteConfirmation = (product) => {
+    setProductToDelete(product);
+    setIsModalVisible(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (productToDelete) {
+      handleDeleteProduct(productToDelete);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setIsModalVisible(false);
+    setProductToDelete(null);
   };
 
   const handleShowAddForm = () => {
@@ -82,9 +88,9 @@ function Management({ initialProducts }) {
         Adicionar Produto
       </button>
       <ProductTable
-        products={products}
+        products={initialProducts}
         onEdit={handleEditProduct}
-        onDelete={handleDeleteProduct}
+        onDelete={showDeleteConfirmation}
       />
       {isFormVisible && (
         <div ref={formRef} className={css["form-container"]}>
@@ -96,7 +102,12 @@ function Management({ initialProducts }) {
           />
         </div>
       )}
-
+      <Modal
+        isVisible={isModalVisible}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        message={`Você tem certeza que deseja excluir o produto "${productToDelete?.name}"?`}
+      />
     </Section>
   );
 }

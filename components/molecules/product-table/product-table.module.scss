@@ -27,10 +27,10 @@
   }
 
   .button-edit {
-    background-color: #0070f3;
+    background-color: $primary;
 
     &:hover {
-      background-color: #005bb5;
+      background-color: $color-secondary-5;
     }
 
   }
@@ -39,7 +39,7 @@
     background-color: $primary-red;
 
     &:hover {
-      background-color: #005bb5;
+      background-color: $color-danger;
     }
 
   }
