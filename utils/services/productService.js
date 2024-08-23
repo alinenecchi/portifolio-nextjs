@@ -20,9 +20,10 @@ export async function addProduct(newProduct) {
   try {
     const res = await fetch(API_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }),
       body: JSON.stringify(newProduct),
     });
     if (!res.ok) {
