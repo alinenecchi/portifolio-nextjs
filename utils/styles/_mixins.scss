@@ -44,3 +44,15 @@ $size-title: 3.8rem;
 @mixin blend {
   mix-blend-mode: overlay;
 }
+
+@mixin mediaMin($min-width) {
+  @media screen and (min-width: $min-width) {
+      @content;
+  }
+}
+
+@mixin mediaMax($max-width) {
+  @media screen and (max-width: $max-width) {
+      @content;
+  }
+}
