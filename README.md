@@ -1,27 +1,35 @@
-# PORTIFOLIO-NEXTJS
+# PRODUCT-DASHBOARD
 
 <h4 align="left"> 
 	🚧  Projeto 🚀 em desenvolvimento...  🚧
 </h4>
 <h4> 
-	<a href="https://portifolio-nextjs-alineribeiro.vercel.app/" target="_blank">Meu portifólio</a>
+	<a href="https://portifolio-nextjs-alineribeiro.vercel.app/" target="_blank"></a>
 </h4>
 
-## ETAPA 1: 
+## Overview
 
-Criar um app-react localmente no seu terminal. 
-Website is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-<p><code>git init</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "Enviando para github"</code></p>
+This project is a product management dashboard developed using **React**. It provides a user interface for viewing and editing product information, including images, names, prices, brands, and categories.
 
-Criar um repositório no github, preferencialmente com o mesmo nome.
+## Technologies Used
 
-Continua no terminal do projeto para linkar o projeto local com o remoto: 
-<p><code>git remote add origin https://github.com/aliribei/portifolio-nextjs.git</code></p>
+### **React**
+- **Description**: A JavaScript library for building user interfaces, particularly single-page applications where you need a fast, interactive user experience.
+- **Why Used**: React allows for efficient updates and rendering of components, creating a dynamic and responsive user interface.
 
-## ETAPA 2: 
-Deploy Vercel.
+### **Next.js**
+- **Description**: A React framework that enables server-side rendering and static site generation.
+- **Why Used**: (If used) Provides optimized performance and SEO benefits by rendering pages on the server.
+
+### **Database**
+- **Description**: Database solutions such as MongoDB for storing product data.
+- **Why Used**: (If used) Manages and persists product information efficiently.
+
+- **Why Used**: (If used) Provides a robust set of features for handling HTTP requests and building server-side logic.
+
+### **Jest**
+- **Description**: A testing framework for JavaScript.
+- **Why Used**: (If used) Enables writing and running tests to ensure code quality and functionality.
 
 ## Getting Started
 
