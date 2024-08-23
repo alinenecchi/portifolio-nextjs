@@ -9,7 +9,7 @@ function ProductTable({ products, onEdit, onDelete, className = "" }) {
           <th>Nome</th>
           <th>Categorias</th>
           <th>Preço</th>
-          <th>Ações</th>
+          <th>Editar/Deletar</th>
         </tr>
       </thead>
       <tbody>
