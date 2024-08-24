@@ -107,9 +107,10 @@ $media-query-max-size: 1280px;
     display: none;
     background: $white;
     color: $black;
+    font-weight:bold;
 
     flex-direction: column;
-    gap: $s-s;
+    gap: $s-lg;
 
     @include mediaMin($media-query-min-size) {
       display: inline-flex;
