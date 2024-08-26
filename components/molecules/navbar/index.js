@@ -40,7 +40,7 @@ function Navbar(props) {
       </button>
       <ul className={css["navigation-list"]}>
         {pages.map((page) => (
-          <li key={page.href}>
+          <li key={page.href} onClick={mobileNavigationToggler}>
             <Link href={page.href}>{page.label}</Link>
           </li>
         ))}
